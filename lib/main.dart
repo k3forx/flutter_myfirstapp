@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -59,6 +57,6 @@ class PuzzlePage extends StatefulWidget {
 class _PuzzlePageState extends State<PuzzlePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }
