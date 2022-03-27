@@ -17,4 +17,20 @@ void main() {
     expect(find.text('Slide Puzzle'), findsOneWidget);
     expect(find.text('Start'), findsOneWidget);
   });
+
+  testWidgets('puzzle screen is shown after start button is tapped',
+      (WidgetTester tester) async {
+    await tester.binding.setSurfaceSize(const Size(400, 800));
+    await tester.pumpWidget(const MyFirstApp());
+
+    await tester.tap(find.text('Start'));
+    await tester.pumpAndSettle();
+
+    final List<int> expectedNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
+    for (int i = 0; i < expectedNumbers.length; i++) {
+      expect(find.text(expectedNumbers[i].toString()), findsOneWidget);
+    }
+
+    expect(find.text('shuffle'), findsOneWidget);
+  });
 }
